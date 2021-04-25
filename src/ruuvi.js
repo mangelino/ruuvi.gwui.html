@@ -53,7 +53,9 @@ function save_config() {
     data.mqtt_prefix = get_mqtt_topic_prefix();
     data.mqtt_user = $("#mqtt_user").val();
     data.mqtt_pass = $("#mqtt_pass").val();
-
+    data.mqtt_privkey = $("#mqtt_privkey").val();
+    data.mqtt_devicecert = $("#mqtt_devicecert").val();
+    data.mqtt_cacert = $("#mqtt_cacert").val();
     data.use_http = (custom_conn === 'use_http');
     data.http_url = $("#http_url").val();
     data.http_user = $("#http_user").val();
@@ -271,10 +273,20 @@ function get_config() {
                     case "mqtt_user":
                         $("#mqtt_user").val(key_value);
                         break;
+                    case "mqtt_privkey": 
+                        $("#mqtt_privkey").val(key_value);
+                        break;
+                    case "mqtt_devicecert": 
+                        $("#mqtt_devicecert").val(key_value);
+                        break;
+                    case "mqtt_cacert":
+                        $("#mqtt_cacert").val(key_value);
+                        break;
                     case "mqtt_prefix": {
                         mqtt_prefix = key_value;
                         break;
                     }
+                    
                     case "coordinates":
                         $("#coordinates").val(key_value);
                         break;
